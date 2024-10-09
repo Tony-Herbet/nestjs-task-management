@@ -17,13 +17,13 @@ export class TasksController {
     return this.tasksService.getTaskById(id);
   }
 
-  @Delete('/:id')
-  deleteTaskById(@Param('id') id: string): string {
-    return this.tasksService.deleteTaskById(id);
-  }
-
   @Post()
   createTask(@Body() createTaskDto: CreateTaskDto): Task {
     return this.tasksService.createTask(createTaskDto);
+  }
+
+  @Delete('/:id')
+  deleteTask(@Param('id') id: string): void {
+    return this.tasksService.deleteTask(id);
   }
 }
